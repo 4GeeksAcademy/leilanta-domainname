@@ -1,11 +1,23 @@
-/* eslint-disable */
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
 window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  document.querySelector("#randomDomain").innerHTML = excuseGenerator();
+  console.log(excuseGenerator());
 };
+
+function excuseGenerator() {
+  let pronoun = ["the", "our"];
+  let adj = ["great", "big"];
+  let noun = ["jogger", "racoon"];
+
+  let randomPronoun = getRandomElement(pronoun);
+  let randomAdj = getRandomElement(adj);
+  let randomNoun = getRandomElement(noun);
+
+  return pronoun[randomPronoun] + adj[randomAdj] + noun[randomNoun] + ".com";
+}
+
+function getRandomElement(ArrayCalcular) {
+  return Math.floor(Math.random() * ArrayCalcular.length);
+}
